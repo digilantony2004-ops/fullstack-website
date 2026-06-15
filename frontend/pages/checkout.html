@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | FoodieHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><i class="fas fa-fire"></i><span>FoodieHub</span></a>
+            <div class="nav-links" id="nav-links"><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="favorites.html">Favorites</a><a href="cart.html">Cart</a><a href="orders.html">Orders</a></div>
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-cart" id="nav-cart"><i class="fas fa-shopping-cart"></i><span class="cart-badge hidden" id="cart-badge">0</span></a>
+                <div class="auth-buttons" id="auth-buttons"><a href="login.html" class="btn btn-secondary btn-sm">Login</a><a href="register.html" class="btn btn-primary btn-sm">Sign Up</a></div>
+                <div class="user-dropdown" id="user-dropdown"><button class="user-dropdown-btn" id="user-dropdown-btn"><i class="fas fa-user-circle"></i><span id="user-name">User</span><i class="fas fa-chevron-down" style="font-size:0.7rem"></i></button><div class="user-dropdown-menu" id="user-dropdown-menu"><a href="orders.html"><i class="fas fa-receipt"></i> My Orders</a><a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a><button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button></div></div>
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1><span class="gradient-text">Checkout</span></h1>
+                <p>Complete your order details and confirm</p>
+            </div>
+
+            <div class="checkout-layout">
+                <div>
+                    <div class="checkout-form-card" style="margin-bottom:var(--space-lg)">
+                        <h3><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Delivery Details</h3>
+                        <div class="form-group">
+                            <label for="delivery-address">Delivery Address *</label>
+                            <textarea id="delivery-address" rows="3" placeholder="Enter your full delivery address..." style="width:100%;padding:12px 16px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-primary);resize:vertical"></textarea>
+                            <div class="form-error" id="address-error">Please enter a delivery address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-phone">Phone Number</label>
+                            <input type="tel" id="delivery-phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-notes">Delivery Notes (Optional)</label>
+                            <input type="text" id="delivery-notes" placeholder="Any special instructions...">
+                        </div>
+                    </div>
+
+                    <div class="checkout-form-card">
+                        <h3><i class="fas fa-credit-card" style="color:var(--accent)"></i> Payment Method</h3>
+                        <div class="payment-methods">
+                            <label class="payment-card selected" id="payment-cod">
+                                <input type="radio" name="payment" value="cod" checked>
+                                <i class="fas fa-money-bill-wave"></i>
+                                <h5>Cash on Delivery</h5>
+                                <p>Pay when delivered</p>
+                            </label>
+                            <label class="payment-card" id="payment-card">
+                                <input type="radio" name="payment" value="card">
+                                <i class="fas fa-credit-card"></i>
+                                <h5>Credit/Debit Card</h5>
+                                <p>Secure payment</p>
+                            </label>
+                            <label class="payment-card" id="payment-upi">
+                                <input type="radio" name="payment" value="upi">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h5>UPI</h5>
+                                <p>GPay, PhonePe, etc.</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-summary" id="checkout-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items"></div>
+                    <div class="summary-row" style="margin-top:var(--space-md)"><span>Subtotal</span><span id="checkout-subtotal">₹0</span></div>
+                    <div class="summary-row"><span>Delivery Fee</span><span id="checkout-delivery">₹40</span></div>
+                    <div class="summary-row"><span>Tax (5%)</span><span id="checkout-tax">₹0</span></div>
+                    <div class="summary-row total"><span>Total</span><span id="checkout-total">₹0</span></div>
+                    <button class="btn btn-primary" id="place-order-btn"><i class="fas fa-check-circle"></i> Place Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+    <script src="../assests/js/app.js"></script>
+    <script src="../assests/js/checkout.js"></script>
+</body>
+</html>

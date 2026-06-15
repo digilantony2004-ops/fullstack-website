@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites | FoodieHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><i class="fas fa-fire"></i><span>FoodieHub</span></a>
+            <div class="nav-links" id="nav-links"><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="favorites.html" class="active">Favorites</a><a href="cart.html">Cart</a><a href="orders.html">Orders</a></div>
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-cart" id="nav-cart"><i class="fas fa-shopping-cart"></i><span class="cart-badge hidden" id="cart-badge">0</span></a>
+                <div class="auth-buttons" id="auth-buttons"><a href="login.html" class="btn btn-secondary btn-sm">Login</a><a href="register.html" class="btn btn-primary btn-sm">Sign Up</a></div>
+                <div class="user-dropdown" id="user-dropdown"><button class="user-dropdown-btn" id="user-dropdown-btn"><i class="fas fa-user-circle"></i><span id="user-name">User</span><i class="fas fa-chevron-down" style="font-size:0.7rem"></i></button><div class="user-dropdown-menu" id="user-dropdown-menu"><a href="orders.html"><i class="fas fa-receipt"></i> My Orders</a><a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a><button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button></div></div>
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>My <span class="gradient-text">Favorites</span> <i class="fas fa-heart" style="color:var(--error);font-size:0.7em"></i></h1>
+                <p>Your saved dishes for quick access</p>
+            </div>
+            <div class="food-grid" id="favorites-grid"></div>
+        </div>
+    </main>
+
+    <button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+    <script src="../assests/js/app.js"></script>
+    <script src="../assests/js/favorites.js"></script>
+</body>
+</html>
